@@ -33,7 +33,7 @@ class Gem::Commands::OpenCommand < Gem::Command
   end
 
   def open_gem(path)
-    editor = options[:command] || ENV['GEM_OPEN_EDITOR'] || ENV['EDITOR']
+    editor = options[:command] || Gem.configuration[:open] || ENV['GEM_OPEN_EDITOR'] || ENV['EDITOR']
     if !editor
       say "Either set $EDITOR, or use -c <command_name>"
     else

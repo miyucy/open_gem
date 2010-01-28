@@ -41,7 +41,7 @@ class Gem::Commands::ReadCommand < Gem::Command
   end
   
   def rdoc_reader
-    options[:command] || case RUBY_PLATFORM.downcase
+    options[:command] || Gem.configuration[:read] || case RUBY_PLATFORM.downcase
       when /darwin/ then 'open'
       when /mswin/  then 'explorer'
       when /linux/  then 'firefox'
